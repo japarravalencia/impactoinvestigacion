@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario Matricial - Impacto de la Investigación</title>
+    <title>Formulario Matricial - Modelamiento Sistémico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -14,7 +14,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: auto;
             background: white;
             border-radius: 12px;
@@ -49,17 +49,29 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            overflow-x: auto;
         }
 
         th, td {
             padding: 10px;
             text-align: left;
             vertical-align: top;
+            border: 1px solid #ddd;
         }
 
         th {
             background-color: #ecf0f1;
-            width: 40%;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        td:first-child,
+        th:first-child {
+            position: sticky;
+            left: 0;
+            background-color: #ecf0f1;
+            z-index: 0;
         }
 
         .intensidad {
@@ -103,213 +115,117 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- Presentación -->
-        <h1>Formulario de Modelamiento Participativo</h1>
-        <p>Este formulario tiene como objetivo recopilar información sobre las relaciones entre distintos factores y su impacto en el "<strong>Impacto de la investigación</strong>". Tu participación es anónima y voluntaria.</p>
+    <!-- Introducción -->
+    <h1>Ejercicio de Modelamiento Participativo</h1>
+    <p>El objetivo de este ejercicio es identificar y valorar las relaciones entre los distintos elementos que influyen en la estructura sistémica del grupo de investigación, con el fin de comprender cómo estos interactúan para producir la dinámica del impacto de la investigación.</p>
 
-        <!-- Datos personales -->
-        <form id="formularioMatriz">
+    <!-- Datos personales -->
+    <form id="formularioMatrizCompleta">
 
-            <label for="nombre">Nombre y Apellido:</label>
-            <input type="text" id="nombre" name="nombre" required>
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-            <label for="fecha">Fecha:</label>
-            <input type="date" id="fecha" name="fecha" required>
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
 
-            <!-- Consentimiento -->
-            <div class="consentimiento">
-                <input type="checkbox" id="consentimiento" name="consentimiento" required>
-                <label for="consentimiento">He leído y acepto participar en este ejercicio de modelamiento sistémico.</label>
-            </div>
+        <!-- Consentimiento -->
+        <div class="consentimiento">
+            <input type="checkbox" id="consentimiento" name="consentimiento" required>
+            <label for="consentimiento">He leído y acepto participar en este ejercicio de modelamiento sistémico.</label>
+        </div>
 
-            <!-- Matriz de relaciones -->
-            <h2>Evaluación de Factores</h2>
-            <p>Por favor, indica qué tan fuerte es la relación entre cada uno de los siguientes factores y el “Impacto de la investigación”, asignando un valor entre 0 (nula) y 5 (muy fuerte).</p>
+        <!-- Matriz de relaciones -->
+        <h2>Relaciones entre Factores</h2>
+        <p>Por favor, indica qué tan fuerte es la relación entre cada par de factores, asignando un valor entre 0 (nula) y 5 (muy fuerte).</p>
 
-            <table>
+        <table>
+            <thead>
                 <tr>
-                    <th>Factor</th>
-                    <th>Intensidad (0–5)</th>
+                    <th></th>
+                    <th>Liderazgo</th>
+                    <th>Colaboración</th>
+                    <th>Pensamiento Estratégico</th>
+                    <th>Participación de los interesados</th>
+                    <th>Resultados de la investigación</th>
+                    <th>Calidad de la investigación</th>
+                    <th>Comunicación</th>
+                    <th>Visibilidad de la investigación</th>
+                    <th>Impacto de la investigación</th>
+                    <th>Financiación</th>
+                    <th>Moral del equipo</th>
+                    <th>Recursos</th>
+                    <th>Productividad</th>
+                    <th>Confianza Interna</th>
+                    <th>Reconocimiento Externo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila: Liderazgo -->
+                <tr>
+                    <td>Liderazgo</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Liderazgo" value="0">0 ... <input type="radio" name="Liderazgo_Liderazgo" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Colaboración" value="0">0 ... <input type="radio" name="Liderazgo_Colaboración" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_PensamientoEstrategico" value="0">0 ... <input type="radio" name="Liderazgo_PensamientoEstrategico" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_ParticipacionInteresados" value="0">0 ... <input type="radio" name="Liderazgo_ParticipacionInteresados" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_ResultadosInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_ResultadosInvestigacion" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_CalidadInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_CalidadInvestigacion" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Comunicación" value="0">0 ... <input type="radio" name="Liderazgo_Comunicación" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_VisibilidadInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_VisibilidadInvestigacion" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_ImpactoInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_ImpactoInvestigacion" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Financiación" value="0">0 ... <input type="radio" name="Liderazgo_Financiación" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_MoralEquipo" value="0">0 ... <input type="radio" name="Liderazgo_MoralEquipo" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Recursos" value="0">0 ... <input type="radio" name="Liderazgo_Recursos" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_Productividad" value="0">0 ... <input type="radio" name="Liderazgo_Productividad" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_ConfianzaInterna" value="0">0 ... <input type="radio" name="Liderazgo_ConfianzaInterna" value="5">5</td>
+                    <td class="intensidad"><input type="radio" name="Liderazgo_ReconocimientoExterno" value="0">0 ... <input type="radio" name="Liderazgo_ReconocimientoExterno" value="5">5</td>
                 </tr>
 
-                <!-- Fila: Colaboración -->
-                <tr>
-                    <td>Colaboración</td>
-                    <td class="intensidad">
-                        <input type="radio" name="Colaboración" value="0">0
-                        <input type="radio" name="Colaboración" value="1">1
-                        <input type="radio" name="Colaboración" value="2">2
-                        <input type="radio" name="Colaboración" value="3">3
-                        <input type="radio" name="Colaboración" value="4">4
-                        <input type="radio" name="Colaboración" value="5">5
-                    </td>
-                </tr>
+                <!-- Puedes seguir añadiendo filas similares para todos los factores -->
 
-                <!-- Fila: Pensamiento Estratégico Participativo -->
-                <tr>
-                    <td>Pensamiento Estratégico Participativo</td>
-                    <td class="intensidad">
-                        <input type="radio" name="PensamientoEstrategico" value="0">0
-                        <input type="radio" name="PensamientoEstrategico" value="1">1
-                        <input type="radio" name="PensamientoEstrategico" value="2">2
-                        <input type="radio" name="PensamientoEstrategico" value="3">3
-                        <input type="radio" name="PensamientoEstrategico" value="4">4
-                        <input type="radio" name="PensamientoEstrategico" value="5">5
-                    </td>
-                </tr>
+            </tbody>
+        </table>
 
-                <!-- Fila: Resultados de la investigación -->
-                <tr>
-                    <td>Resultados de la investigación</td>
-                    <td class="intensidad">
-                        <input type="radio" name="ResultadosInvestigacion" value="0">0
-                        <input type="radio" name="ResultadosInvestigacion" value="1">1
-                        <input type="radio" name="ResultadosInvestigacion" value="2">2
-                        <input type="radio" name="ResultadosInvestigacion" value="3">3
-                        <input type="radio" name="ResultadosInvestigacion" value="4">4
-                        <input type="radio" name="ResultadosInvestigacion" value="5">5
-                    </td>
-                </tr>
+        <button type="submit">Enviar Respuestas</button>
+        <div class="mensaje-exito" id="mensajeExito">✅ ¡Gracias por tu participación!</div>
+    </form>
+</div>
 
-                <!-- Fila: Calidad de la investigación -->
-                <tr>
-                    <td>Calidad de la investigación</td>
-                    <td class="intensidad">
-                        <input type="radio" name="CalidadInvestigacion" value="0">0
-                        <input type="radio" name="CalidadInvestigacion" value="1">1
-                        <input type="radio" name="CalidadInvestigacion" value="2">2
-                        <input type="radio" name="CalidadInvestigacion" value="3">3
-                        <input type="radio" name="CalidadInvestigacion" value="4">4
-                        <input type="radio" name="CalidadInvestigacion" value="5">5
-                    </td>
-                </tr>
+<script>
+    document.getElementById('formularioMatrizCompleta').addEventListener('submit', function(e) {
+        e.preventDefault();
 
-                <!-- Fila: Visibilidad de la investigación -->
-                <tr>
-                    <td>Visibilidad de la investigación</td>
-                    <td class="intensidad">
-                        <input type="radio" name="VisibilidadInvestigacion" value="0">0
-                        <input type="radio" name="VisibilidadInvestigacion" value="1">1
-                        <input type="radio" name="VisibilidadInvestigacion" value="2">2
-                        <input type="radio" name="VisibilidadInvestigacion" value="3">3
-                        <input type="radio" name="VisibilidadInvestigacion" value="4">4
-                        <input type="radio" name="VisibilidadInvestigacion" value="5">5
-                    </td>
-                </tr>
+        const nombre = document.getElementById('nombre').value;
+        const fecha = document.getElementById('fecha').value;
 
-                <!-- Fila: Financiación -->
-                <tr>
-                    <td>Financiación</td>
-                    <td class="intensidad">
-                        <input type="radio" name="Financiacion" value="0">0
-                        <input type="radio" name="Financiacion" value="1">1
-                        <input type="radio" name="Financiacion" value="2">2
-                        <input type="radio" name="Financiacion" value="3">3
-                        <input type="radio" name="Financiacion" value="4">4
-                        <input type="radio" name="Financiacion" value="5">5
-                    </td>
-                </tr>
+        if (!nombre || !fecha || !document.getElementById('consentimiento').checked) {
+            alert("Por favor completa todos los campos y acepta el consentimiento.");
+            return;
+        }
 
-                <!-- Fila: Productividad -->
-                <tr>
-                    <td>Productividad</td>
-                    <td class="intensidad">
-                        <input type="radio" name="Productividad" value="0">0
-                        <input type="radio" name="Productividad" value="1">1
-                        <input type="radio" name="Productividad" value="2">2
-                        <input type="radio" name="Productividad" value="3">3
-                        <input type="radio" name="Productividad" value="4">4
-                        <input type="radio" name="Productividad" value="5">5
-                    </td>
-                </tr>
-
-                <!-- Fila: Confianza Interna -->
-                <tr>
-                    <td>Confianza Interna</td>
-                    <td class="intensidad">
-                        <input type="radio" name="ConfianzaInterna" value="0">0
-                        <input type="radio" name="ConfianzaInterna" value="1">1
-                        <input type="radio" name="ConfianzaInterna" value="2">2
-                        <input type="radio" name="ConfianzaInterna" value="3">3
-                        <input type="radio" name="ConfianzaInterna" value="4">4
-                        <input type="radio" name="ConfianzaInterna" value="5">5
-                    </td>
-                </tr>
-
-                <!-- Fila: Reconocimiento Externo -->
-                <tr>
-                    <td>Reconocimiento Externo</td>
-                    <td class="intensidad">
-                        <input type="radio" name="ReconocimientoExterno" value="0">0
-                        <input type="radio" name="ReconocimientoExterno" value="1">1
-                        <input type="radio" name="ReconocimientoExterno" value="2">2
-                        <input type="radio" name="ReconocimientoExterno" value="3">3
-                        <input type="radio" name="ReconocimientoExterno" value="4">4
-                        <input type="radio" name="ReconocimientoExterno" value="5">5
-                    </td>
-                </tr>
-
-            </table>
-
-            <button type="submit">Enviar Respuestas</button>
-            <div class="mensaje-exito" id="mensajeExito">✅ ¡Gracias por tu participación!</div>
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('formularioMatriz').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const nombre = document.getElementById('nombre').value;
-            const fecha = document.getElementById('fecha').value;
-
-            // Validar campos obligatorios
-            if (!nombre || !fecha || !document.getElementById('consentimiento').checked) {
-                alert("Por favor completa todos los campos y acepta el consentimiento.");
-                return;
-            }
-
-            // Obtener valores de la matriz
-            const factores = {
-                Colaboración: getRadioValue("Colaboración"),
-                PensamientoEstrategico: getRadioValue("PensamientoEstrategico"),
-                ResultadosInvestigacion: getRadioValue("ResultadosInvestigacion"),
-                CalidadInvestigacion: getRadioValue("CalidadInvestigacion"),
-                VisibilidadInvestigacion: getRadioValue("VisibilidadInvestigacion"),
-                Financiacion: getRadioValue("Financiacion"),
-                Productividad: getRadioValue("Productividad"),
-                ConfianzaInterna: getRadioValue("ConfianzaInterna"),
-                ReconocimientoExterno: getRadioValue("ReconocimientoExterno")
-            };
-
-            // Mostrar resultados en consola
-            console.log({
-                nombre,
-                fecha,
-                factores
-            });
-
-            // Mostrar mensaje de éxito
-            const mensaje = document.getElementById('mensajeExito');
-            mensaje.style.display = 'block';
-
-            // Limpiar formulario después de enviar
-            setTimeout(() => {
-                e.target.reset();
-                mensaje.style.display = 'none';
-            }, 2000);
+        // Aquí puedes recopilar todas las respuestas
+        const respuestas = {};
+        const radios = document.querySelectorAll('input[type="radio"]:checked');
+        radios.forEach(radio => {
+            respuestas[radio.name] = radio.value;
         });
 
-        function getRadioValue(name) {
-            const radios = document.getElementsByName(name);
-            for (let radio of radios) {
-                if (radio.checked) return radio.value;
-            }
-            return null;
-        }
-    </script>
+        console.log({
+            nombre,
+            fecha,
+            respuestas
+        });
+
+        const mensaje = document.getElementById('mensajeExito');
+        mensaje.style.display = 'block';
+
+        setTimeout(() => {
+            e.target.reset();
+            mensaje.style.display = 'none';
+        }, 2000);
+    });
+</script>
 
 </body>
 </html>
