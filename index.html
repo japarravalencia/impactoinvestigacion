@@ -2,15 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario Matricial - Modelamiento Sistémico</title>
+    <title>Matriz de Relaciones - Impacto de la Investigación</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f7f9fc;
             color: #333;
-            margin: 0;
-            padding: 20px;
+            margin: 20px;
+            padding: 0;
         }
 
         .container {
@@ -27,12 +27,46 @@
             color: #2c3e50;
         }
 
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
+        p.description {
+            text-align: center;
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
         }
 
-        label {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            vertical-align: top;
+        }
+
+        th {
+            background-color: #ecf0f1;
+            font-weight: bold;
+        }
+
+        .description-cell {
+            font-style: italic;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .rating input[type="radio"] {
+            margin: 0 5px;
+        }
+
+        label.nombre {
             font-weight: bold;
         }
 
@@ -43,44 +77,6 @@
             margin-bottom: 15px;
             border-radius: 6px;
             border: 1px solid #ccc;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            overflow-x: auto;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            vertical-align: top;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #ecf0f1;
-            position: sticky;
-            top: 0;
-            z-index: 1;
-        }
-
-        td:first-child,
-        th:first-child {
-            position: sticky;
-            left: 0;
-            background-color: #ecf0f1;
-            z-index: 0;
-        }
-
-        .intensidad {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .intensidad input[type="radio"] {
-            margin: 0 5px;
         }
 
         .consentimiento {
@@ -118,13 +114,13 @@
 <div class="container">
 
     <!-- Introducción -->
-    <h1>Ejercicio de Modelamiento Participativo</h1>
-    <p>El objetivo de este ejercicio es identificar y valorar las relaciones entre los distintos elementos que influyen en la estructura sistémica del grupo de investigación, con el fin de comprender cómo estos interactúan para producir la dinámica del impacto de la investigación.</p>
+    <h1>Evaluación de Relaciones Sistémicas</h1>
+    <p class="description">Este ejercicio busca identificar y valorar el peso de las relaciones entre los distintos factores que influyen en el impacto de la investigación, con base en las hipótesis sistémicas del modelo HyDyn.</p>
 
     <!-- Datos personales -->
-    <form id="formularioMatrizCompleta">
+    <form id="formularioRelaciones">
 
-        <label for="nombre">Nombre y Apellido:</label>
+        <label class="nombre" for="nombre">Nombre y Apellido:</label>
         <input type="text" id="nombre" name="nombre" required>
 
         <label for="fecha">Fecha:</label>
@@ -136,53 +132,142 @@
             <label for="consentimiento">He leído y acepto participar en este ejercicio de modelamiento sistémico.</label>
         </div>
 
-        <!-- Matriz de relaciones -->
-        <h2>Relaciones entre Factores</h2>
-        <p>Por favor, indica qué tan fuerte es la relación entre cada par de factores, asignando un valor entre 0 (nula) y 5 (muy fuerte).</p>
-
+        <!-- Tabla de relaciones -->
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th>Liderazgo</th>
-                    <th>Colaboración</th>
-                    <th>Pensamiento Estratégico</th>
-                    <th>Participación de los interesados</th>
-                    <th>Resultados de la investigación</th>
-                    <th>Calidad de la investigación</th>
-                    <th>Comunicación</th>
-                    <th>Visibilidad de la investigación</th>
-                    <th>Impacto de la investigación</th>
-                    <th>Financiación</th>
-                    <th>Moral del equipo</th>
-                    <th>Recursos</th>
-                    <th>Productividad</th>
-                    <th>Confianza Interna</th>
-                    <th>Reconocimiento Externo</th>
+                    <th>De</th>
+                    <th>A</th>
+                    <th>Descripción</th>
+                    <th>Peso de la relación (0–5)</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Fila: Liderazgo -->
-                <tr>
-                    <td>Liderazgo</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Liderazgo" value="0">0 ... <input type="radio" name="Liderazgo_Liderazgo" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Colaboración" value="0">0 ... <input type="radio" name="Liderazgo_Colaboración" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_PensamientoEstrategico" value="0">0 ... <input type="radio" name="Liderazgo_PensamientoEstrategico" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_ParticipacionInteresados" value="0">0 ... <input type="radio" name="Liderazgo_ParticipacionInteresados" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_ResultadosInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_ResultadosInvestigacion" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_CalidadInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_CalidadInvestigacion" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Comunicación" value="0">0 ... <input type="radio" name="Liderazgo_Comunicación" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_VisibilidadInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_VisibilidadInvestigacion" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_ImpactoInvestigacion" value="0">0 ... <input type="radio" name="Liderazgo_ImpactoInvestigacion" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Financiación" value="0">0 ... <input type="radio" name="Liderazgo_Financiación" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_MoralEquipo" value="0">0 ... <input type="radio" name="Liderazgo_MoralEquipo" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Recursos" value="0">0 ... <input type="radio" name="Liderazgo_Recursos" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_Productividad" value="0">0 ... <input type="radio" name="Liderazgo_Productividad" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_ConfianzaInterna" value="0">0 ... <input type="radio" name="Liderazgo_ConfianzaInterna" value="5">5</td>
-                    <td class="intensidad"><input type="radio" name="Liderazgo_ReconocimientoExterno" value="0">0 ... <input type="radio" name="Liderazgo_ReconocimientoExterno" value="5">5</td>
-                </tr>
 
-                <!-- Puedes seguir añadiendo filas similares para todos los factores -->
+<!-- Cada fila representa una relación from -> to -->
+<!-- Se usa el nombre de la relación como ID único -->
+
+<!-- RELACIÓN 1 -->
+<tr>
+    <td>Liderazgo</td>
+    <td>Colaboración</td>
+    <td class="description-cell">El liderazgo fuerte fomenta la colaboración efectiva</td>
+    <td class="rating">
+        <input type="radio" name="Liderazgo_Colaboración" value="0">0
+        <input type="radio" name="Liderazgo_Colaboración" value="1">1
+        <input type="radio" name="Liderazgo_Colaboración" value="2">2
+        <input type="radio" name="Liderazgo_Colaboración" value="3">3
+        <input type="radio" name="Liderazgo_Colaboración" value="4">4
+        <input type="radio" name="Liderazgo_Colaboración" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 2 -->
+<tr>
+    <td>Liderazgo</td>
+    <td>Pensamiento Estratégico Participativo</td>
+    <td class="description-cell">El liderazgo fuerte mejora la planificación estratégica</td>
+    <td class="rating">
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="0">0
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="1">1
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="2">2
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="3">3
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="4">4
+        <input type="radio" name="Liderazgo_PensamientoEstrategico" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 3 -->
+<tr>
+    <td>Liderazgo</td>
+    <td>Moral del equipo</td>
+    <td class="description-cell">El liderazgo fuerte aumenta la moral del equipo</td>
+    <td class="rating">
+        <input type="radio" name="Liderazgo_MoralEquipo" value="0">0
+        <input type="radio" name="Liderazgo_MoralEquipo" value="1">1
+        <input type="radio" name="Liderazgo_MoralEquipo" value="2">2
+        <input type="radio" name="Liderazgo_MoralEquipo" value="3">3
+        <input type="radio" name="Liderazgo_MoralEquipo" value="4">4
+        <input type="radio" name="Liderazgo_MoralEquipo" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 4 -->
+<tr>
+    <td>Colaboración</td>
+    <td>Calidad de la investigación</td>
+    <td class="description-cell">La colaboración efectiva mejora la calidad de la investigación</td>
+    <td class="rating">
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="0">0
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="1">1
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="2">2
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="3">3
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="4">4
+        <input type="radio" name="Colaboración_CalidadInvestigacion" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 5 -->
+<tr>
+    <td>Colaboración</td>
+    <td>Resultados de la investigación</td>
+    <td class="description-cell">La colaboración efectiva mejora los resultados de la investigación</td>
+    <td class="rating">
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="0">0
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="1">1
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="2">2
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="3">3
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="4">4
+        <input type="radio" name="Colaboración_ResultadosInvestigacion" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 6 -->
+<tr>
+    <td>Pensamiento Estratégico Participativo</td>
+    <td>Participación de los interesados</td>
+    <td class="description-cell">La planificación estratégica mejora la participación de los interesados</td>
+    <td class="rating">
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="0">0
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="1">1
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="2">2
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="3">3
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="4">4
+        <input type="radio" name="PensamientoEstrategico_ParticipacionInteresados" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 7 -->
+<tr>
+    <td>Pensamiento Estratégico Participativo</td>
+    <td>Visibilidad de la investigación</td>
+    <td class="description-cell">La planificación estratégica aumenta la visibilidad de la investigación</td>
+    <td class="rating">
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="0">0
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="1">1
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="2">2
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="3">3
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="4">4
+        <input type="radio" name="PensamientoEstrategico_VisibilidadInvestigacion" value="5">5
+    </td>
+</tr>
+
+<!-- RELACIÓN 8 -->
+<tr>
+    <td>Participación de los interesados</td>
+    <td>Impacto de la investigación</td>
+    <td class="description-cell">La participación de los interesados aumenta el impacto de la investigación</td>
+    <td class="rating">
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="0">0
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="1">1
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="2">2
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="3">3
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="4">4
+        <input type="radio" name="ParticipacionInteresados_ImpactoInvestigacion" value="5">5
+    </td>
+</tr>
+
+<!-- Aquí puedes seguir añadiendo todas las demás relaciones -->
 
             </tbody>
         </table>
@@ -193,7 +278,7 @@
 </div>
 
 <script>
-    document.getElementById('formularioMatrizCompleta').addEventListener('submit', function(e) {
+    document.getElementById('formularioRelaciones').addEventListener('submit', function(e) {
         e.preventDefault();
 
         const nombre = document.getElementById('nombre').value;
@@ -204,7 +289,7 @@
             return;
         }
 
-        // Aquí puedes recopilar todas las respuestas
+        // Recopilar respuestas
         const respuestas = {};
         const radios = document.querySelectorAll('input[type="radio"]:checked');
         radios.forEach(radio => {
