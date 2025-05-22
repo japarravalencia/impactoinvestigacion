@@ -3,104 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Relaciones</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 40px;
         }
 
         h2 {
             text-align: center;
-            color: #333;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        p.description {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
         }
 
         label {
             display: block;
             margin-top: 1em;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 15px;
         }
 
-        select, input[type="number"], button {
+        select,
+        input[type="number"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-top: 5px;
-            border-radius: 5px;
+            border-radius: 6px;
             border: 1px solid #ccc;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus,
+        input[type="number"]:focus {
+            border-color: #3498db;
+            outline: none;
         }
 
         button {
-            background-color: #2ecc71;
+            margin-top: 25px;
+            padding: 14px;
+            width: 100%;
+            background-color: #3498db;
             color: white;
+            font-size: 16px;
+            font-weight: bold;
             border: none;
+            border-radius: 6px;
             cursor: pointer;
-            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #27ae60;
+            background-color: #2980b9;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #27ae60;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <h2>Indica las Relaciones entre Factores</h2>
+    <div class="container">
+        <h2>Relaciones entre Factores</h2>
+        <p class="description">Por favor, selecciona dos factores y define la intensidad de su relación (0 = nula, 5 = muy fuerte).</p>
 
-    <form id="formularioRelaciones">
+        <form id="formularioRelaciones">
+            <label for="factorDesde">Factor de Origen:</label>
+            <select id="factorDesde" name="factorDesde" required>
+                <option value="">-- Selecciona un factor --</option>
+                <option value="Liderazgo">Liderazgo</option>
+                <option value="Colaboración">Colaboración</option>
+                <option value="Pensamiento Estratégico Participativo">Pensamiento Estratégico Participativo</option>
+                <option value="Participación de los interesados">Participación de los interesados</option>
+                <option value="Resultados de la investigación">Resultados de la investigación</option>
+                <option value="Calidad de la investigación">Calidad de la investigación</option>
+                <option value="Comunicación">Comunicación</option>
+                <option value="Visibilidad de la investigación">Visibilidad de la investigación</option>
+                <option value="Impacto de la investigación">Impacto de la investigación</option>
+                <option value="Financiación">Financiación</option>
+                <option value="Moral del equipo">Moral del equipo</option>
+                <option value="Recursos">Recursos</option>
+                <option value="Productividad">Productividad</option>
+                <option value="Confianza Interna">Confianza Interna</option>
+                <option value="Reconocimiento Externo">Reconocimiento Externo</option>
+            </select>
 
-        <label for="factorDesde">Selecciona el factor de origen:</label>
-        <select id="factorDesde" name="factorDesde" required>
-            <option value="">-- Selecciona una opción --</option>
-            <option value="Liderazgo">Liderazgo</option>
-            <option value="Colaboración">Colaboración</option>
-            <option value="Pensamiento Estratégico Participativo">Pensamiento Estratégico Participativo</option>
-            <option value="Participación de los interesados">Participación de los interesados</option>
-            <option value="Resultados de la investigación">Resultados de la investigación</option>
-            <option value="Calidad de la investigación">Calidad de la investigación</option>
-            <option value="Comunicación">Comunicación</option>
-            <option value="Visibilidad de la investigación">Visibilidad de la investigación</option>
-            <option value="Impacto de la investigación">Impacto de la investigación</option>
-            <option value="Financiación">Financiación</option>
-            <option value="Moral del equipo">Moral del equipo</option>
-            <option value="Recursos">Recursos</option>
-            <option value="Productividad">Productividad</option>
-            <option value="Confianza Interna">Confianza Interna</option>
-            <option value="Reconocimiento Externo">Reconocimiento Externo</option>
-        </select>
+            <label for="factorHacia">Factor de Destino:</label>
+            <select id="factorHacia" name="factorHacia" required>
+                <option value="">-- Selecciona un factor --</option>
+                <option value="Liderazgo">Liderazgo</option>
+                <option value="Colaboración">Colaboración</option>
+                <option value="Pensamiento Estratégico Participativo">Pensamiento Estratégico Participativo</option>
+                <option value="Participación de los interesados">Participación de los interesados</option>
+                <option value="Resultados de la investigación">Resultados de la investigación</option>
+                <option value="Calidad de la investigación">Calidad de la investigación</option>
+                <option value="Comunicación">Comunicación</option>
+                <option value="Visibilidad de la investigación">Visibilidad de la investigación</option>
+                <option value="Impacto de la investigación">Impacto de la investigación</option>
+                <option value="Financiación">Financiación</option>
+                <option value="Moral del equipo">Moral del equipo</option>
+                <option value="Recursos">Recursos</option>
+                <option value="Productividad">Productividad</option>
+                <option value="Confianza Interna">Confianza Interna</option>
+                <option value="Reconocimiento Externo">Reconocimiento Externo</option>
+            </select>
 
-        <label for="factorHacia">Selecciona el factor de destino:</label>
-        <select id="factorHacia" name="factorHacia" required>
-            <option value="">-- Selecciona una opción --</option>
-            <option value="Liderazgo">Liderazgo</option>
-            <option value="Colaboración">Colaboración</option>
-            <option value="Pensamiento Estratégico Participativo">Pensamiento Estratégico Participativo</option>
-            <option value="Participación de los interesados">Participación de los interesados</option>
-            <option value="Resultados de la investigación">Resultados de la investigación</option>
-            <option value="Calidad de la investigación">Calidad de la investigación</option>
-            <option value="Comunicación">Comunicación</option>
-            <option value="Visibilidad de la investigación">Visibilidad de la investigación</option>
-            <option value="Impacto de la investigación">Impacto de la investigación</option>
-            <option value="Financiación">Financiación</option>
-            <option value="Moral del equipo">Moral del equipo</option>
-            <option value="Recursos">Recursos</option>
-            <option value="Productividad">Productividad</option>
-            <option value="Confianza Interna">Confianza Interna</option>
-            <option value="Reconocimiento Externo">Reconocimiento Externo</option>
-        </select>
+            <label for="intensidad">Intensidad de la relación (0 a 5):</label>
+            <input type="number" id="intensidad" name="intensidad" min="0" max="5" step="1" placeholder="Ej: 3" required>
 
-        <label for="intensidad">Intensidad de la relación (0 = nula, 5 = muy fuerte):</label>
-        <input type="number" id="intensidad" name="intensidad" min="0" max="5" step="1" placeholder="Ej: 3" required>
-
-        <button type="submit">Guardar Relación</button>
-    </form>
+            <button type="submit">Enviar Relación</button>
+            <div class="success-message" id="mensajeExito">✅ ¡Gracias por tu respuesta!</div>
+        </form>
+    </div>
 
     <script>
-        // Guarda temporalmente las respuestas en consola
         document.getElementById('formularioRelaciones').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -119,10 +160,15 @@
                 intensidad
             });
 
-            alert("¡Relación guardada en la consola!");
+            // Mostrar mensaje de éxito
+            const mensaje = document.getElementById('mensajeExito');
+            mensaje.style.display = 'block';
 
-            // Opcional: limpiar formulario
-            e.target.reset();
+            // Limpiar formulario después de enviar
+            setTimeout(() => {
+                e.target.reset();
+                mensaje.style.display = 'none';
+            }, 2000);
         });
     </script>
 
